@@ -1,0 +1,4 @@
+{
+  "nodeAPI": "http://localhost:8000/api",
+  "todos": "http://localhost:8000/api/todos"
+}
