@@ -27,18 +27,18 @@ ENV APP1=/var/www
 WORKDIR /usr/share/nginx/html
 
 # now there is a folder in dist for angular 6
-COPY --from=builder $APP1/dist/ngnixtest .
+COPY --from=builder $APP1/dist/angular-ss .
 
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
 
 
 
-# docker build -t ngnixproxytest -f Dockerfile  .
-# docker run -p 3000:80 -d --name ngnixproxytest ngnixproxytest
+# docker build -t angular-ss -f Dockerfile  .
+# docker run -p 3000:80 -d --name angular-ss angular-ss
 
-#to inspect
-# docker run -it -p 3000:80  ngnixproxytest /bin/bash
+# to inspect
+# docker run -it -p 3000:80  angular-ss /bin/bash
 
 #for openshift
 
