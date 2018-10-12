@@ -17,7 +17,7 @@ RUN npm install
 # Bundle app source in this experiment the dist should be build
 # already  as well as all node modules
 COPY . $APP
-RUN npm run prodbuild
+RUN npm run ng build --prod
 
 FROM nginx:1.14.0
 RUN apt-get update && apt-get install -y nginx
