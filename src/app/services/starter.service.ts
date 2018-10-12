@@ -15,7 +15,7 @@ export class StarterService {
   });
 
    // Change observable to class type - This is for real endpoint (change name of method)
-  public getAPI(): Observable<any>{
+  public getAPI(): Observable<any> {
 
     const url = environment['nodeAPI']; // change out with URL name in config.json
     console.log(url);
@@ -37,7 +37,7 @@ export class StarterService {
   }
 
   // Change observable to class type - this is mock data get (change name of method)
-  public getGitHubRepoJSON(): Observable<any>{
+  public getGitHubRepoJSON(): Observable<any> {
 
     const url = 'assets/dataModelSample.json'; // replace with mock data file
     console.log(url);

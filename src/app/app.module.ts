@@ -6,10 +6,12 @@ import { StarterService } from './services/starter.service';
 import { ConfigService } from './config.service';
 
 import { AppComponent } from './app.component';
+import { DisplayComponent } from './display/display.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
