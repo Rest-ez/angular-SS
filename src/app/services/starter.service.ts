@@ -14,18 +14,32 @@ export class StarterService {
     'Content-Type': 'application/json',
   });
 
-   //Change observable to class type - This is for real endpoint (change name of method)
-  public getGitHubRepos(account: string): Observable<any>{
+   // Change observable to class type - This is for real endpoint (change name of method)
+  public getAPI(): Observable<any>{
 
-    const url = environment['baseGameURL'] + account; //change out with URL name in config.json
+    const url = environment['nodeAPI']; // change out with URL name in config.json
     console.log(url);
     return this.http.get<any>(url);
   }
 
-  //Change observable to class type - this is mock data get (change name of method)
-  public getTestGitHubRepos(account: string): Observable<any>{
+  public getToDo(): Observable<any> {
 
-    const url = 'assets/dataModelSample.json'; //replace with mock data file
+    const url = environment['todos']; // change out with URL name in config.json
+    console.log(url);
+    return this.http.get<any>(url);
+  }
+
+  public postToDo(data: any): Observable<any> {
+
+    const url = environment['todos']; // change out with URL name in config.json
+    console.log(url);
+    return this.http.get<any>(url);
+  }
+
+  // Change observable to class type - this is mock data get (change name of method)
+  public getGitHubRepoJSON(): Observable<any>{
+
+    const url = 'assets/dataModelSample.json'; // replace with mock data file
     console.log(url);
     return this.http.get(url);
   }

@@ -1,4 +1,4 @@
 {
-  "baseGameURL": "http://dev.game.acuityx.us/rest/organization/",
-  "SwaggerURL": "http://dev.game.acuityx.us/swagger-ui.html"
+  "nodeAPI": "http://localhost:8000/api",
+  "todos": "http://localhost:8000/api/todos"
 }
