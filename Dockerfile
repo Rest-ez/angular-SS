@@ -19,12 +19,13 @@ RUN npm install
 COPY . $APP
 RUN npm run ng build --prod
 
-FROM nginx:1.14.0
+FROM nginx:latest
 RUN apt-get update && apt-get install -y nginx
 
 COPY proxy.conf /etc/nginx/conf.d/default.conf
 ENV APP1=/var/www
-WORKDIR /usr/share/nginx/html
+WORKDIR /usr/share/nginx/htmldoaker images
+
 
 # now there is a folder in dist for angular 6
 COPY --from=builder $APP1/dist/angular-ss .
