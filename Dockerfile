@@ -29,7 +29,7 @@ WORKDIR /usr/share/nginx/html
 # now there is a folder in dist for angular 6
 COPY --from=builder $APP1/dist/angular-ss .
 
-EXPOSE 80 443
+EXPOSE 80 443 8080
 CMD ["nginx", "-g", "daemon off;"]
 
 
