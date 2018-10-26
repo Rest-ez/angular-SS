@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y nginx
 
 COPY proxy.conf /etc/nginx/conf.d/default.conf
 ENV APP1=/var/www
-WORKDIR /usr/share/nginx/htmldoaker images
+WORKDIR /usr/share/nginx/html
 
 
 # now there is a folder in dist for angular 6
