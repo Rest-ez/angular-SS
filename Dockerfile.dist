@@ -18,7 +18,11 @@ CMD ["nginx", "-g", "daemon off;"]
 # ng build --prod
 
 # docker build -t angular-ss -f Dockerfile.dist  .
+# docker run  -d -p 443:443 -p 80:80 angular-ss:latest
+
+#these are blocked by the fire wall
 # docker run -p 3000:80 -d --name angular-ss angular-ss
+# docker run  -d -p 443:443 -p 3000:80 angular-ss:latest
 
 # to inspect
 # docker run -it -p 3000:80  angular-ss /bin/bash
