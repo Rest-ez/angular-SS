@@ -1,43 +1,23 @@
-FROM node:latest AS builder
-ENV APP=/var/www
-
-#RUN apt-get update # && app-get install -y curl
-
-# Create app directory
-RUN mkdir -p $APP
-WORKDIR $APP
-
-# Install app dependencies
-COPY package.json $APP
-COPY package-lock.json $APP
-
-RUN npm install
-#RUN npm rebuild node-sass
-
-# Bundle app source in this experiment the dist should be build
-# already  as well as all node modules
-COPY . $APP
-RUN npm run ng build --prod
 
 FROM nginx:latest
 #  RUN apt-get update && apt-get install -y nginx
 
 #COPY proxy.conf /etc/nginx/conf.d/default.conf
 
-ENV APP1=/var/www
-WORKDIR /usr/share/nginx/html
-
 
 # now there is a folder in dist for angular 6
-COPY --from=builder ${APP1}/dist/angular-ss .
-COPY proxy.conf /etc/nginx/conf.d/default.conf
+
+COPY ./dist/angular-ss /usr/share/nginx/html
+COPY ./proxy.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
 
 
+# make sure you build a ./dist folder by hand using the command
+# ng build --prod
 
-# docker build -t angular-ss -f Dockerfile  .
+# docker build -t angular-ss -f Dockerfile.dist  .
 # docker run -p 3000:80 -d --name angular-ss angular-ss
 
 # to inspect
